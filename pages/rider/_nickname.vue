@@ -1,103 +1,106 @@
 <template>
-<div class="w-100 h-100">
-  <div v-if="!data && (error.status === 404 || error.status === 500)" class="wrapper">
-    <Alert :title="error.title" :subtitle="error.subtitle"/>
-  </div>
-  <div v-else-if="data" class="player-detail">
-    <div class="player-info">
-      <div class="is-flex is-flex-direction-row is-align-items-center">
-        <img
-          :src="`${$config.metadataUrl}character/${data.character}.png`"
-          class="character"
-          @error="CharacterNotFound"
-        />
-        <div class="">
-          <div class="is-flex is-align-items-center">
-            <span class="player-nickname">{{ data.nickname }}</span>
-            <!-- <Icon
+  <div class="w-100 h-100">
+    <div
+      v-if="!data && (error.status === 404 || error.status === 500)"
+      class="wrapper"
+    >
+      <Alert :title="error.title" :subtitle="error.subtitle" />
+    </div>
+    <div v-else-if="data" class="player-detail">
+      <div class="player-info">
+        <div class="is-flex is-flex-direction-row is-align-items-center">
+          <img
+            :src="`${$config.metadataUrl}character/${data.character}.png`"
+            class="character"
+            @error="CharacterNotFound"
+          />
+          <div class="">
+            <div class="is-flex is-align-items-center">
+              <span class="player-nickname">{{ data.nickname }}</span>
+              <!-- <Icon
               :icon="'ri-star-line'"
               :color="'#FF6384'"
               class="is-clickable"
             /> -->
+            </div>
+            <p class="player-license">{{ data.license }}</p>
           </div>
-          <p class="player-license">{{ data.license }}</p>
+        </div>
+        <b-button
+          class="refresh-button"
+          type="is-primary"
+          rounded
+          :loading="isButtonLoading"
+          @click="refreshPlayerDetail()"
+          >{{ data.lastRenewal }}</b-button
+        >
+      </div>
+      <hr class="divider" />
+      <div class="menu-box">
+        <b-dropdown :disabled="mode === 'all'">
+          <template #trigger>
+            <button class="channel-dropdown">
+              {{ selectChannelName }}
+              <Icon
+                :icon="'ri-arrow-down-s-fill'"
+                :color="'#000000'"
+                :width="24"
+                :height="24"
+                class="is-pulled-right"
+              />
+            </button>
+          </template>
+          <div v-if="mode === 'speed'">
+            <b-dropdown-item
+              v-for="item in availableChannels.speed"
+              :key="item.uid"
+              @click="selectChannel('speed', item.uid)"
+              >{{ item.name }}</b-dropdown-item
+            >
+          </div>
+          <div v-else-if="mode === 'item'">
+            <b-dropdown-item
+              v-for="item in availableChannels.item"
+              :key="item.uid"
+              @click="selectChannel('item', item.uid)"
+              >{{ item.name }}</b-dropdown-item
+            >
+          </div>
+          <div v-else-if="mode === 'etc'">
+            <b-dropdown-item
+              v-for="item in availableChannels.etc"
+              :key="item.uid"
+              @click="selectChannel('etc', item.uid)"
+              >{{ item.name }}</b-dropdown-item
+            >
+          </div>
+        </b-dropdown>
+        <SelectModeBox v-model="mode" />
+      </div>
+      <div v-if="data.matches.length == 0 && error && error.status === 202">
+        <Alert :title="error.title" :subtitle="error.subtitle" />
+      </div>
+      <div class="player-detail-box">
+        <div class="player-sidebar">
+          <RecentMatchSummary
+            v-if="data.recentMatchSummary?.mostPlayedTrack !== null"
+            :data="data.recentMatchSummary"
+          />
+          <RecentTrackRecordList
+            v-if="data.recentTrackRecords?.length > 0"
+            :data="data.recentTrackRecords"
+          />
+        </div>
+        <div class="match-list-box">
+          <MatchList
+            :key="channel"
+            :data="data.matches"
+            :my-access-id="data.accessId"
+            :channel="channel"
+          />
         </div>
       </div>
-      <b-button
-        class="refresh-button"
-        type="is-primary"
-        rounded
-        :loading="isButtonLoading"
-        @click="refreshPlayerDetail()"
-        >{{ data.lastRenewal }}</b-button
-      >
     </div>
-    <hr class="divider" />
-    <div class="menu-box">
-      <b-dropdown :disabled="mode === 'all'">
-        <template #trigger>
-          <button class="channel-dropdown">
-            {{ selectChannelName }}
-            <Icon
-              :icon="'ri-arrow-down-s-fill'"
-              :color="'#000000'"
-              :width="24"
-              :height="24"
-              class="is-pulled-right"
-            />
-          </button>
-        </template>
-        <div v-if="mode === 'speed'">
-          <b-dropdown-item
-            v-for="item in availableChannels.speed"
-            :key="item.uid"
-            @click="selectChannel('speed', item.uid)"
-            >{{ item.name }}</b-dropdown-item
-          >
-        </div>
-        <div v-else-if="mode === 'item'">
-          <b-dropdown-item
-            v-for="item in availableChannels.item"
-            :key="item.uid"
-            @click="selectChannel('item', item.uid)"
-            >{{ item.name }}</b-dropdown-item
-          >
-        </div>
-        <div v-else-if="mode === 'etc'">
-          <b-dropdown-item
-            v-for="item in availableChannels.etc"
-            :key="item.uid"
-            @click="selectChannel('etc', item.uid)"
-            >{{ item.name }}</b-dropdown-item
-          >
-        </div>
-      </b-dropdown>
-      <SelectModeBox v-model="mode" />
-    </div>
-    <div v-if="data.matches.length == 0 && error && error.status === 202">
-      <Alert :title="error.title" :subtitle="error.subtitle" />
-    </div>
-    <div class="player-detail-box">
-      <div class="player-sidebar">
-        <RecentMatchSummary
-          v-if="data.recentMatchSummary?.mostPlayedTrack !== null"
-          :data="data.recentMatchSummary"
-        />
-        <RecentTrackRecordList
-          v-if="data.recentTrackRecords?.length > 0"
-          :data="data.recentTrackRecords"
-        />
-      </div>
-      <div class="match-list-box">
-        <MatchList
-          :key="channel"
-          :data="data.matches"
-          :my-access-id="data.accessId"
-          :channel="channel"
-        />
-      </div>
-    </div>
-  </div>
   </div>
 </template>
 <script lang="ts">
@@ -118,32 +121,31 @@ export default Vue.extend({
       mode: ctx.query.mode ?? 'all',
       data: {},
       availableChannels: {},
-      error:{}
+      error: {},
     }
-    try{
-    data.data = await ctx.$api.getPlayerDetail(
-      encodeURI(data.nickname),
-      data.channel as string
-    )
-    }
-    catch(e: any|AxiosError){
-       if(axios.isAxiosError(e)){
-         switch(e.response?.status){
+    try {
+      data.data = await ctx.$api.getPlayerDetail(
+        encodeURI(data.nickname),
+        data.channel as string
+      )
+    } catch (e: any | AxiosError) {
+      if (axios.isAxiosError(e)) {
+        switch (e.response?.status) {
           case 404:
             data.error = {
-              title:'해당 라이더가 존재하지 않습니다.',
-              subtitle:'해당 라이더가 존재하지 않습니다.',
-              status:404
+              title: '해당 라이더가 존재하지 않습니다.',
+              subtitle: '해당 라이더가 존재하지 않습니다.',
+              status: 404,
             }
             break
           default:
             data.error = {
-              title:'에러',
-              subtitle:'알 수 없는 에러가 발생하였습니다.',
-              status:500
+              title: '에러',
+              subtitle: '알 수 없는 에러가 발생하였습니다.',
+              status: 500,
             }
-         }
-       }
+        }
+      }
     }
     data.availableChannels =
       (await ctx.$strapi.getAvailableChannels()) as AvailableChannels
@@ -158,7 +160,7 @@ export default Vue.extend({
       availableChannels: {} as AvailableChannels,
       data: {} as PlayerDetail,
       isButtonLoading: false,
-      error:{} as {title:string, subtitle:string,status:number} | null
+      error: {} as { title: string; subtitle: string; status: number } | null,
     }
   },
   watch: {
@@ -190,14 +192,13 @@ export default Vue.extend({
           this.data.nickname,
           this.channel
         )
-        if(data === null){
+        if (data === null) {
           this.error = {
             title: '플레이 기록 없음',
-            subtitle:'조회할 수 있는 플레이 기록이 없습니다.',
-            status: 202
+            subtitle: '조회할 수 있는 플레이 기록이 없습니다.',
+            status: 202,
           }
-        }
-        else{
+        } else {
           this.data = data
         }
       } catch (e) {

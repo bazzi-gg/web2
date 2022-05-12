@@ -40,11 +40,11 @@ class ApiWrapper {
     nickname: string,
     channel: string
   ): Promise<PlayerDetail | null> {
-    const data: ''|PlayerDetail = await this.axios.$post('/api/player', {
+    const data: '' | PlayerDetail = await this.axios.$post('/api/player', {
       Nickname: nickname,
       channel,
     })
-    if(data === ''){
+    if (data === '') {
       return null
     }
     console.log(data)
