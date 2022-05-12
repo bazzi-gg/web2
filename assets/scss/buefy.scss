@@ -1,0 +1,62 @@
+@charset "utf-8"; // Import Bulma's core
+//@import '~bulma/sass/utilities/_all';
+$primary: #272c34;
+$body-font-size: 13px;
+$body-background-color: #f5f5f5;
+$text: black;
+// navbar component
+$navbar-background-color: $primary;
+$navbar-item-color: white;
+$navbar-item-hover-color: $navbar-item-color;
+$navbar-item-hover-background-color: $primary;
+$navbar-padding-horizontal: 1rem;
+$navbar-item-hover-background-color: transparent;
+$navbar-dropdown-boxed-shadow: none;
+// 모바일 반응형 제거, https://github.com/jgthms/bulma/issues/1445#issuecomment-443308954
+$navbar-breakpoint: 0;
+// navbar-dropdown이 active 되었을 때 텍스트 컬러 흰색 적용
+$navbar-item-active-color: white;
+
+// dropdown component
+$dropdown-menu-min-width: 0rem;
+
+// container layout
+$container-max-width: 1000px;
+$container-offset: 0px;
+
+// box element
+$box-shadow: none;
+$box-radius: 4px;
+$box-padding: 0rem;
+
+@import '~bulma';
+@import '~buefy/src/scss/buefy';
+
+//overwrite
+
+// navbar component
+@media screen and (min-width: 1024px) {
+  .navbar > .container .navbar-menu,
+  .container > .navbar .navbar-menu {
+    margin-right: 0rem;
+  }
+}
+.navbar-item {
+  padding: 0.5rem 4px;
+  // 4,4나눠서 주는 이유는, hover되면 아래 화이트바가 서로 닿기 때문에 마진으로 띄워줌
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.navbar-dropdown > .navbar-item {
+  color: black;
+  font-size: 13px;
+}
+.navbar-menu {
+  box-shadow: none;
+  background-color: $primary;
+}
+
+// layout
+.container {
+  max-width: 1000px;
+}
