@@ -12,7 +12,7 @@ FROM --platform=linux/amd64 node:16-alpine
 
 WORKDIR /app
 ADD package.json ./
-ADD nuxt.config.js ./
+ADD nuxt.config.ts ./
 COPY --from=builder ./app/node_modules ./node_modules/
 COPY --from=builder ./app/.nuxt ./.nuxt/
 COPY --from=builder ./app/src ./src/
