@@ -5,13 +5,16 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
+interface PlayTimeCountByChannel{
+  [index: string]: number[]
+}
 export default Vue.extend({
   name: 'PlayTimeCountByChannelLine',
   props: {
     data: {
       type: Object,
       required: true,
-    } as PropOptions<Object>,
+    } as PropOptions<PlayTimeCountByChannel>,
   },
   data() {
     return {
@@ -64,7 +67,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    preprocess(data: Object): any[] {
+    preprocess(data: PlayTimeCountByChannel): any[] {
       const result: any[] = []
       for (const key in data) {
         result.push({ name: key, data: data[key] })
