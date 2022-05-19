@@ -52,6 +52,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/dayjs',
+    '@nuxtjs/sentry'
   ],
   dayjs: {
     locales: ['en', 'ko'],

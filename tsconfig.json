@@ -23,7 +23,8 @@
       "dayjs/plugin/relativeTime",
       "dayjs/plugin/duration",
       "dayjs/plugin/timezone",
-      "dayjs/plugin/utc"
+      "dayjs/plugin/utc",
+      "@nuxtjs/sentry"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
