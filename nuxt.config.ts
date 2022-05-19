@@ -1,3 +1,4 @@
+import pkg from './package.json'
 const isDevelopment: boolean = process.env.NODE_ENV === 'development'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -52,8 +53,13 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/dayjs',
-    '@nuxtjs/sentry'
+    '@nuxtjs/sentry',
   ],
+  sentry: {
+    config: {
+      release: pkg.version,
+    },
+  },
   dayjs: {
     locales: ['en', 'ko'],
     defaultLocale: 'ko',
