@@ -13,9 +13,7 @@ FROM --platform=linux/amd64 node:16-alpine
 WORKDIR /app
 ADD package.json ./
 ADD nuxt.config.ts ./
-COPY --from=builder ./app/node_modules ./node_modules/
-COPY --from=builder ./app/.nuxt ./.nuxt/
-COPY --from=builder ./app/src ./src/
+COPY --from=builder ./app ./
 
 # Default environment variables
 ENV NUXT_HOST=0.0.0.0
