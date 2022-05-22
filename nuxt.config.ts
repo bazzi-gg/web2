@@ -1,15 +1,24 @@
 import pkg from './package.json'
 const isDevelopment: boolean = process.env.NODE_ENV === 'development'
+const titleTemplate = (chunk:string) => `${chunk} | BAZZI.GG`;
+const defaultTitle = "카트라이더 전적 검색";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'web',
     htmlAttrs: {
       lang: 'ko',
     },
+    titleTemplate,
+    title: defaultTitle,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'idth=device-width, initial-scale=1, viewport-fit=cover' },
+      {
+        property: "og:title",
+        content: defaultTitle,
+        template: titleTemplate,
+        hid: "og:title",
+      },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
