@@ -5,7 +5,7 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
-interface PlayTimeCountByChannel{
+interface PlayTimeCountByChannel {
   [index: string]: number[]
 }
 export default Vue.extend({
