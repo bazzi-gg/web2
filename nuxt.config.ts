@@ -31,6 +31,13 @@ export default {
         hid: "og:description",
       },
       { name: 'format-detection', content: 'telephone=no' },
+      { property: 'og:site_name', content: 'BAZZI.GG' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:image',
+        content: '/cover.png',
+      },
+      { property: 'og:image:alt', content: 'BAZZI.GG Logo' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
