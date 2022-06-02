@@ -17,10 +17,10 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: 'https://bazzi.gg' + this.$route.path
-        }
-      ]
+          href: 'https://bazzi.gg' + this.$route.path,
+        },
+      ],
     }
-  }
+  },
 })
 </script>

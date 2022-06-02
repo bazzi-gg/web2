@@ -220,13 +220,13 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta';
+import { MetaInfo } from 'vue-meta'
 export default Vue.extend({
-  head():MetaInfo {
+  head(): MetaInfo {
     return this.$seo({
-      title: "개인정보처리방침",
-      description: "BAZZI.GG 개인정보처리방침",
-    });
+      title: '개인정보처리방침',
+      description: 'BAZZI.GG 개인정보처리방침',
+    })
   },
 })
 </script>

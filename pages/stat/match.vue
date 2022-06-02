@@ -91,7 +91,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta';
+import { MetaInfo } from 'vue-meta'
 export default Vue.extend({
   name: 'IndexPage',
   data() {
@@ -101,13 +101,13 @@ export default Vue.extend({
       key: '',
     }
   },
-   head():MetaInfo{
+  head(): MetaInfo {
     return this.$seo({
-      title: "매치 통계",
+      title: '매치 통계',
       description: `${this.$dayjs()
-        .add(-1, "day")
-        .format("YYYY-MM-DD")} 매치 통계를 살펴보세요.`,
-    });
+        .add(-1, 'day')
+        .format('YYYY-MM-DD')} 매치 통계를 살펴보세요.`,
+    })
   },
   watch: {
     async selectedDate(val) {
