@@ -57,6 +57,7 @@ export default {
     '~/plugins/strapi.ts',
     '~/plugins/apexcharts.client.js',
     '~/plugins/statapi.ts',
+    '~/plugins/seo.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
