@@ -128,6 +128,7 @@ export default Vue.extend({
         encodeURI(data.nickname),
         data.channel as string
       )
+      ctx.$accessor.recentSearch.add(data.nickname)
     } catch (e: any | AxiosError) {
       if (axios.isAxiosError(e)) {
         switch (e.response?.status) {
