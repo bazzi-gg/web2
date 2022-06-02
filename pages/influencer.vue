@@ -114,6 +114,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta';
 import { Influencer } from '~/types/influencer'
 export default Vue.extend({
   name: 'IndexPage',
@@ -123,6 +124,12 @@ export default Vue.extend({
       filterType: 'all' as 'all' | 'programer' | 'streamer',
       input: '',
     }
+  },
+    head(): MetaInfo{
+    return this.$seo({
+      title: "프로, 인플루언서 리스트",
+      description: "BAZZI.GG에 등록된 프로, 인플루언서를 확인해보세요.",
+    });
   },
   computed: {
     filter(): Influencer[] {

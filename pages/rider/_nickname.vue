@@ -108,6 +108,7 @@ import { stringify } from 'querystring'
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import axios, { AxiosError } from 'axios'
+import { MetaInfo } from 'vue-meta';
 import { AvailableChannels } from '~/types/available-channels'
 import { Metadata } from '~/types/metadata'
 import { PlayerDetail } from '~/types/player-detail.ts'
@@ -119,9 +120,10 @@ export default Vue.extend({
       nickname: ctx.params.nickname,
       channel: ctx.query.channel ?? 'all',
       mode: ctx.query.mode ?? 'all',
-      data: {},
+      data: {} as PlayerDetail,
       availableChannels: {},
-      error: {},
+      error: {} as {title:string,subtitle:string,status:number},
+      head: {title: `${ctx.params.nickname} - 전적 검색`} as {title:string,description: string}
     }
     try {
       data.data = await ctx.$api.getPlayerDetail(
@@ -129,6 +131,7 @@ export default Vue.extend({
         data.channel as string
       )
       ctx.$accessor.recentSearch.add(data.nickname)
+      data.head.description = `${data.data.license} 라이센스 / 승률: ${data.data.recentMatchSummary.winRate}%, 승: ${data.data.recentMatchSummary.win}, 패: ${data.data.recentMatchSummary.lose}`;
     } catch (e: any | AxiosError) {
       if (axios.isAxiosError(e)) {
         switch (e.response?.status) {
@@ -146,6 +149,7 @@ export default Vue.extend({
               status: 500,
             }
         }
+        data.head.description = data.error.subtitle
       }
     }
     data.availableChannels =
@@ -163,6 +167,12 @@ export default Vue.extend({
       isButtonLoading: false,
       error: {} as { title: string; subtitle: string; status: number } | null,
     }
+  },
+  head():MetaInfo {
+    return this.$seo({
+      title: this.head.title,
+      description: this.head.description,
+    });
   },
   watch: {
     mode() {

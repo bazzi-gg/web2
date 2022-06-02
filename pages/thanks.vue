@@ -18,6 +18,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta';
 import strapi from '../plugins/strapi'
 import { Contributor } from '~/types/contributor'
 export default Vue.extend({
@@ -26,6 +27,12 @@ export default Vue.extend({
     return {
       contributors: [] as Contributor[],
     }
+  },
+    head():MetaInfo {
+    return this.$seo({
+      title: "기여자",
+      description: "BAZZI.GG에 기여해주신 소중한 분들입니다.",
+    });
   },
   async created() {
     this.contributors = await this.$strapi.getContributors()

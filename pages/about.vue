@@ -24,8 +24,15 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta';
 export default Vue.extend({
   name: 'AboutPage',
+   head(): MetaInfo{
+    return this.$seo({
+      title: "BAZZI.GG에 대해",
+      description: "카트라이더 전적 검색 사이트, BAZZI.GG에 대해 알아보세요.",
+    });
+  },
 })
 </script>
 <style scoped>
