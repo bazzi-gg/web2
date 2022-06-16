@@ -25,7 +25,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/sentry": "^5.1.7",
-    "apexcharts": "^3.35.0",
+    "apexcharts": "^3.35.3",
     "cookie": "^0.5.0",
     "core-js": "^3.19.3",
     "js-cookie": "^3.0.1",
