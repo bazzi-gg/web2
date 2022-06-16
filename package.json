@@ -31,7 +31,7 @@
     "js-cookie": "^3.0.1",
     "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.4.23",
-    "nuxt-typed-vuex": "^0.3.0",
+    "nuxt-typed-vuex": "^0.3.1",
     "vue": "^2.6.14",
     "vue-apexcharts": "^1.6.2",
     "vue-server-renderer": "^2.6.14",
@@ -60,7 +60,7 @@
     "sass": "^1.50.0",
     "sass-loader": "^10.1.1",
     "ts-jest": "^27.1.1",
-    "typescript": "^4.6.4",
+    "typescript": "^4.7.3",
     "vue-jest": "^3.0.4",
     "vue-template-babel-compiler": "^1.2.0"
   }
