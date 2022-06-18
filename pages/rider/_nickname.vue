@@ -1,7 +1,7 @@
 <template>
   <div class="w-100 h-100">
     <div
-      v-if="!data && (error.status === 404 || error.status === 500)"
+      v-if="error"
       class="wrapper"
     >
       <Alert :title="error.title" :subtitle="error.subtitle" />
