@@ -153,6 +153,7 @@ export default Vue.extend({
               status: 500,
             }
         }
+        ctx.error({statusCode:data.error.status,message:data.error.title})
         data.head.description = data.error.subtitle
       }
     }
