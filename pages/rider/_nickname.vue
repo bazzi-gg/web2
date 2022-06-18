@@ -191,7 +191,6 @@ export default Vue.extend({
     },
   },
   mounted() {
-    console.log(this.data);
     this.selectChannel(
       this.mode as 'all' | 'item' | 'speed' | 'etc',
       this.channel
