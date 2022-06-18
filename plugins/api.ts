@@ -47,7 +47,6 @@ class ApiWrapper {
     if (data === '') {
       return null
     }
-    console.log(data)
     this.updatePlayerData(data)
     return data
   }
