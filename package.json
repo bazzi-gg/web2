@@ -27,7 +27,7 @@
     "@nuxtjs/sentry": "^5.1.7",
     "apexcharts": "^3.35.3",
     "cookie": "^0.5.0",
-    "core-js": "^3.19.3",
+    "core-js": "^3.23.1",
     "js-cookie": "^3.0.1",
     "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.4.23",
