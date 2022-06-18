@@ -20,7 +20,7 @@ export default {
     return this.$seo({
       title: this.error.message,
       description: `${this.error.statusCode} ${this.error.message}`,
-    });
+    })
   },
-};
+}
 </script>
