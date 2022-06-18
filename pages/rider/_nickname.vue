@@ -1,12 +1,6 @@
 <template>
   <div class="w-100 h-100">
-    <div
-      v-if="error"
-      class="wrapper"
-    >
-      <Alert :title="error.title" :subtitle="error.subtitle" />
-    </div>
-    <div v-else-if="data" class="player-detail">
+    <div v-if="data" class="player-detail">
       <div class="player-info">
         <div class="is-flex is-flex-direction-row is-align-items-center">
           <img
