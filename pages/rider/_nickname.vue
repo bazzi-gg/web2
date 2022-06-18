@@ -77,13 +77,13 @@
         </b-dropdown>
         <SelectModeBox v-model="mode" />
       </div>
-      <div v-if="data.matches.length == 0 && error && error.status === 202">
+      <div v-if="data.matches?.length == 0 && error && error.status === 202">
         <Alert :title="error.title" :subtitle="error.subtitle" />
       </div>
       <div class="player-detail-box">
         <div class="player-sidebar">
           <RecentMatchSummary
-            v-if="data.recentMatchSummary?.mostPlayedTrack !== null"
+            v-if="data.recentMatchSummary?.mostPlayedTrack"
             :data="data.recentMatchSummary"
           />
           <RecentTrackRecordList
@@ -93,6 +93,7 @@
         </div>
         <div class="match-list-box">
           <MatchList
+            v-if="data.matches"
             :key="channel"
             :data="data.matches"
             :my-access-id="data.accessId"
@@ -195,6 +196,7 @@ export default Vue.extend({
     },
   },
   mounted() {
+    console.log(this.data);
     this.selectChannel(
       this.mode as 'all' | 'item' | 'speed' | 'etc',
       this.channel
