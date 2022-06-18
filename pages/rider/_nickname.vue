@@ -169,6 +169,10 @@ export default Vue.extend({
       data: {} as PlayerDetail,
       isButtonLoading: false,
       error: {} as { title: string; subtitle: string; status: number } | null,
+      head: {} as {
+        title: string
+        description: string
+      },
     }
   },
   head(): MetaInfo {
