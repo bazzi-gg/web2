@@ -168,7 +168,7 @@ export default Vue.extend({
   height: 33px;
 }
 .track-info {
-  flex:2;
+  flex: 2;
   padding-left: 8px;
 }
 .track-info-subtitle {
@@ -177,6 +177,6 @@ export default Vue.extend({
 }
 .track-win {
   text-align: center;
-  flex:1;
+  flex: 1;
 }
 </style>
