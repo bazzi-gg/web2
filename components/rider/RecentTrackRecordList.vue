@@ -43,8 +43,8 @@
           alt=""
           class="track-img"
         />
-        <div class="track-info">
-          <p>{{ item.track }}</p>
+        <div class="track-info is-text-ellipsis">
+          <p class="is-text-ellipsis">{{ item.track }}</p>
           <span class="track-info-subtitle">{{ item.bestTime }}</span>
           <span class="track-info-subtitle pl-3"
             >상위 {{ item.top.toFixed(0) }}%</span
@@ -168,6 +168,7 @@ export default Vue.extend({
   height: 33px;
 }
 .track-info {
+  flex:2;
   padding-left: 8px;
 }
 .track-info-subtitle {
@@ -176,7 +177,6 @@ export default Vue.extend({
 }
 .track-win {
   text-align: center;
-  margin-left: auto;
-  padding-right: 36px;
+  flex:1;
 }
 </style>
