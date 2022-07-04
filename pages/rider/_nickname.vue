@@ -203,7 +203,7 @@ export default Vue.extend({
       this.isButtonLoading = true
       try {
         const data = await this.$api.refreshPlayerDetail(
-          this.data.nickname,
+          this.nickname,
           this.channel
         )
         if (data === null) {
