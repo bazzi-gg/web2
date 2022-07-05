@@ -41,7 +41,7 @@
               <p>{{ data.popularChannel }}</p>
               <p class="description">가장 핫한 채널</p>
             </div>
-            <div v-if="data.hotTime">
+            <div v-if="typeof data.hotTime === 'number'">
               <p>{{ data.hotTime }}시</p>
               <p class="description">가장 핫한 시간</p>
             </div>
