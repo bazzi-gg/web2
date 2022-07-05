@@ -97,7 +97,7 @@ export default Vue.extend({
   data() {
     return {
       data: undefined,
-      selectedDate: new Date(),
+      selectedDate: {} as Date,
       key: '',
     }
   },
@@ -116,10 +116,8 @@ export default Vue.extend({
       this.key = date
     },
   },
-  async created() {
-    const date = this.$dayjs().format('YYYY-MM-DD')
-    this.data = await this.getData(date)
-    this.key = date
+  created() {
+    this.selectedDate = new Date()
   },
   methods: {
     async getData(date: string): Promise<any> {
