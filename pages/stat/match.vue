@@ -1,19 +1,21 @@
 <template>
   <div class="top-box">
     <p class="is-size-6">매치 통계</p>
-    <b-datepicker v-model="selectedDate" :mobile-native="false">
-      <template #trigger>
-        <span
-          class="date"
-          :class="{ 'date-live': $dayjs(selectedDate).isToday() }"
-          >{{
-            $dayjs(selectedDate).isToday()
-              ? 'LIVE'
-              : $dayjs(selectedDate).format('YYYY-MM-DD')
-          }}</span
-        >
-      </template>
-    </b-datepicker>
+    <client-only>
+      <b-datepicker v-model="selectedDate" :mobile-native="false">
+        <template #trigger>
+          <span
+            class="date"
+            :class="{ 'date-live': $dayjs(selectedDate).isToday() }"
+            >{{
+              $dayjs(selectedDate).isToday()
+                ? 'LIVE'
+                : $dayjs(selectedDate).format('YYYY-MM-DD')
+            }}</span
+          >
+        </template>
+      </b-datepicker>
+    </client-only>
     <div v-if="data === null">
       <Alert
         :title="'데이터 없음'"
