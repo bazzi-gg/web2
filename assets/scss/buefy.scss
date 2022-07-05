@@ -60,3 +60,8 @@ $box-padding: 0rem;
 .container {
   max-width: 1000px;
 }
+
+// tooltip
+.b-tooltip .tooltip-content {
+  white-space: pre;
+}
