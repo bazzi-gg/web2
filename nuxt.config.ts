@@ -89,7 +89,15 @@ export default {
     '@nuxtjs/dayjs',
     '@nuxtjs/sentry',
     '@nuxtjs/gtm',
+    '@nuxtjs/sitemap',
   ],
+  sitemap: {
+    sitemaps: [
+      {
+        path: '/sitemap.xml',
+      },
+    ],
+  },
   gtm: {
     enable: !isDevelopment,
   },
