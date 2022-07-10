@@ -89,12 +89,12 @@ export default {
     '@nuxtjs/dayjs',
     '@nuxtjs/sentry',
     '@nuxtjs/gtm',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
   ],
   sitemap: {
     sitemaps: [
       {
-        path: "/sitemap.xml",
+        path: '/sitemap.xml',
       },
     ],
   },
