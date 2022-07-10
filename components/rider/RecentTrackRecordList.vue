@@ -178,7 +178,7 @@ export default Vue.extend({
   text-align: center;
   flex: 1;
 }
-.header-title{
-  font-size:12px;
+.header-title {
+  font-size: 12px;
 }
 </style>
