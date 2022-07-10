@@ -37,6 +37,13 @@
             @click="filterType = 'streamer'"
             >스트리머</b-tag
           >
+                    <b-tag
+            rounded
+            class="is-clickable"
+            :class="{ 'filter--active': filterType === 'manager' }"
+            @click="filterType = 'manager'"
+            >감독</b-tag
+          >
         </div>
       </div>
     </div>
@@ -121,7 +128,7 @@ export default Vue.extend({
   data() {
     return {
       influencerList: [] as Influencer[],
-      filterType: 'all' as 'all' | 'programer' | 'streamer',
+      filterType: 'all' as 'all' | 'programer' | 'streamer' | 'manager',
       input: '',
     }
   },
@@ -141,6 +148,10 @@ export default Vue.extend({
       } else if (this.filterType === 'streamer') {
         list = list.filter(
           (item) => item.keywords.findIndex((p) => p === '스트리머') !== -1
+        )
+      } else if(this.filterType === 'manager'){
+        list = list.filter(
+          (item) => item.keywords.findIndex((p) => p === '감독') !== -1
         )
       }
       if (this.input.length > 0) {
