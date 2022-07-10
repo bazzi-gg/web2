@@ -3,3 +3,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.is-text-underline:hover {
+  text-decoration: underline;
+}

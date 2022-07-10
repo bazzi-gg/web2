@@ -18,6 +18,20 @@
             /> -->
             </div>
             <p class="player-license">{{ data.license }}</p>
+            <a
+              class="garage-link-box"
+              :href="`https://kart.nexon.com/Garage/Manage?strRiderID=${data.nickname}`"
+              target="_blank"
+            >
+              <span class="is-text-underline">차고</span>
+              <Icon
+                style="margin-left: -3px; margin-bottom: -2px"
+                :icon="'ri-external-link-line'"
+                :color="'#363636'"
+                :width="14"
+                :height="14"
+              />
+            </a>
           </div>
         </div>
         <b-button
@@ -316,6 +330,11 @@ export default Vue.extend({
 .match-list-box {
   width: 660px;
   height: 100%;
+}
+.garage-link-box {
+  padding-left: 4px;
+  padding-top: 4px;
+  color: #3273dc;
 }
 @media screen and (max-width: 768px) {
   .player-detail-box {
