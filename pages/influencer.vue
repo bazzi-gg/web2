@@ -37,7 +37,7 @@
             @click="filterType = 'streamer'"
             >스트리머</b-tag
           >
-                    <b-tag
+          <b-tag
             rounded
             class="is-clickable"
             :class="{ 'filter--active': filterType === 'manager' }"
@@ -149,7 +149,7 @@ export default Vue.extend({
         list = list.filter(
           (item) => item.keywords.findIndex((p) => p === '스트리머') !== -1
         )
-      } else if(this.filterType === 'manager'){
+      } else if (this.filterType === 'manager') {
         list = list.filter(
           (item) => item.keywords.findIndex((p) => p === '감독') !== -1
         )
