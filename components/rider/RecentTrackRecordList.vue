@@ -1,7 +1,7 @@
 <template>
   <div class="box recent-track-record">
     <div class="header">
-      <span> 최근 200게임 트랙 전적 </span>
+      <span class="header-title"> 최근 200게임 트랙 전적 </span>
       <div class="menu-box">
         <Icon
           :icon="`ri-sort-${sortDirection}`"
@@ -177,5 +177,8 @@ export default Vue.extend({
 .track-win {
   text-align: center;
   flex: 1;
+}
+.header-title{
+  font-size:12px;
 }
 </style>
