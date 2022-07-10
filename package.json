@@ -23,6 +23,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dayjs": "^1.4.1",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/sentry": "^5.1.7",
     "apexcharts": "^3.35.3",
