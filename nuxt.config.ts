@@ -67,8 +67,8 @@ export default {
     metadataUrl: process.env.APP_METADATA_URL,
     strapiUrl: process.env.APP_STRAPI_URL,
     gtm: {
-      id: process.env.APP_GOOGLE_TAG_MANAGER_ID
-    }
+      id: process.env.APP_GOOGLE_TAG_MANAGER_ID,
+    },
   },
   privateRuntimeConfig: {
     apiKey: process.env.APP_API_KEY,
@@ -88,10 +88,10 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/dayjs',
     '@nuxtjs/sentry',
-    '@nuxtjs/gtm'
+    '@nuxtjs/gtm',
   ],
-  gtm:{
-    enable: !isDevelopment
+  gtm: {
+    enable: !isDevelopment,
   },
   sentry: {
     config: {
