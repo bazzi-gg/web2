@@ -150,7 +150,6 @@ export default Vue.extend({
   align-items: center;
   background-color: white;
   justify-content: space-between;
-  padding-left: 16px;
 }
 .list {
   flex: 1;
