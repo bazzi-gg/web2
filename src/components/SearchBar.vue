@@ -73,8 +73,8 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
-import { Autocomplete } from '~/types/autocomplete'
-import { CharacterNotFound } from '~/helpers/callback'
+import { Autocomplete } from '../types/autocomplete'
+import { CharacterNotFound } from '../helpers/callback'
 export default Vue.extend({
   props: {
     size: {

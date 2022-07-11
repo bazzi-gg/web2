@@ -1,8 +1,8 @@
 import { createLocalVue } from '@vue/test-utils'
 import Vuex, { Store } from 'vuex'
 import { useAccessor } from 'typed-vuex'
-import { state, mutations, actions } from '~/store/index'
-import * as recentSearch from '~/store/recentSearch'
+import { state, mutations, actions } from '~/src/store/index'
+import * as recentSearch from '~/src/store/recentSearch'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 

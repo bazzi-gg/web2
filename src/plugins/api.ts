@@ -1,8 +1,8 @@
 import type { NuxtAxiosInstance } from '@nuxtjs/axios'
 import { Plugin } from '@nuxt/types'
-import { Autocomplete } from '~/types/autocomplete'
-import { PlayerDetail } from '~/types/player-detail.ts'
-import { Influencer } from '~/types/influencer'
+import { Autocomplete } from '../types/autocomplete'
+import { PlayerDetail } from '../types/player-detail.ts'
+import { Influencer } from '../types/influencer'
 type Dayjs = typeof import('dayjs')
 class ApiWrapper {
   private readonly axios: NuxtAxiosInstance

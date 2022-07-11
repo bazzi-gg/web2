@@ -1,4 +1,4 @@
-import { RankingPreview } from '~/types/ranking-preview'
+import { RankingPreview } from '../ranking-preview'
 interface StatisticsResponse<T> {
   id: string
   lastUpdated: string

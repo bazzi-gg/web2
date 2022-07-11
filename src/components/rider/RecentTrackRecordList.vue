@@ -60,7 +60,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { RecentTrackRecord } from '~/types/player-detail.ts/recent-track-record'
+import { RecentTrackRecord } from '../../types/player-detail.ts/recent-track-record'
 interface SortType {
   uid: string
   name: string

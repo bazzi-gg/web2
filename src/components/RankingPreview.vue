@@ -25,7 +25,7 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
-import { Ranking } from '~/types/stat/index'
+import { Ranking } from '../types/stat/index'
 export default Vue.extend({
   name: 'RankingPreview',
   props: {
