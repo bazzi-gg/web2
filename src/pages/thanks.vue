@@ -20,7 +20,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import strapi from '../plugins/strapi'
-import { Contributor } from '~/types/contributor'
+import { Contributor } from '../types/contributor'
 export default Vue.extend({
   name: 'ThanksPage',
   data() {

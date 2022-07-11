@@ -72,7 +72,7 @@
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
 import { Match } from '../../types/player-detail.ts/match'
-import { CharacterNotFound, KartbodyNotFound } from '~/helpers/callback'
+import { CharacterNotFound, KartbodyNotFound } from '../../helpers/callback'
 export default Vue.extend({
   props: {
     data: {

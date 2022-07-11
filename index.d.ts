@@ -1,11 +1,11 @@
 import { NuxtRuntimeConfig } from '@nuxt/types/config/runtime'
 import Vue, { ComponentOptions } from 'vue'
 import { MetaInfo } from 'vue-meta'
-import { accessorType } from './store/index'
-import { StrapiWrapper } from './plugins/strapi'
-import { ApiWrapper } from '~/plugins/api'
-import { StatApiWrapper } from '~/plugins/statapi'
-import { SEO } from '~/plugins/seo'
+import { accessorType } from './src/store/index'
+import { StrapiWrapper } from './src/plugins/strapi'
+import { ApiWrapper } from '~/src/plugins/api'
+import { StatApiWrapper } from '~/src/plugins/statapi'
+import { SEO } from '~/src/plugins/seo'
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
     head?: MetaInfo | (() => MetaInfo)

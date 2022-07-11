@@ -118,10 +118,10 @@ import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import axios, { AxiosError } from 'axios'
 import { MetaInfo } from 'vue-meta'
-import { AvailableChannels } from '~/types/available-channels'
-import { Metadata } from '~/types/metadata'
-import { PlayerDetail } from '~/types/player-detail.ts'
-import { CharacterNotFound } from '~/helpers/callback'
+import { AvailableChannels } from '../../types/available-channels'
+import { Metadata } from '../../types/metadata'
+import { PlayerDetail } from '../../types/player-detail.ts'
+import { CharacterNotFound } from '../../helpers/callback'
 export default Vue.extend({
   name: 'RiderPage',
   async asyncData(ctx: Context) {

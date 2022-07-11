@@ -33,8 +33,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Ranking } from '~/types/stat'
-import { CharacterNotFound, KartbodyNotFound } from '~/helpers/callback'
+import { Ranking } from '../types/stat'
+import { CharacterNotFound, KartbodyNotFound } from '../helpers/callback'
 export default Vue.extend({
   name: 'IndexPage',
   data() {

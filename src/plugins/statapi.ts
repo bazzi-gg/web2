@@ -1,6 +1,6 @@
 import type { NuxtAxiosInstance } from '@nuxtjs/axios'
 import { Plugin } from '@nuxt/types'
-import { StatisticsResponse, Ranking } from '~/types/stat'
+import { StatisticsResponse, Ranking } from '../types/stat'
 class StatApiWrapper {
   private readonly axios: NuxtAxiosInstance
   constructor(axiosInstance: NuxtAxiosInstance) {

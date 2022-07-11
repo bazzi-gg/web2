@@ -122,7 +122,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import { Influencer } from '~/types/influencer'
+import { Influencer } from '../types/influencer'
 export default Vue.extend({
   name: 'IndexPage',
   data() {

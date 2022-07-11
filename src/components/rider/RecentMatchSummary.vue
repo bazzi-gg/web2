@@ -27,7 +27,7 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
-import { RecentMatchSummary } from '~/types/player-detail.ts/recent-match-summary'
+import { RecentMatchSummary } from '../../types/player-detail.ts/recent-match-summary'
 export default Vue.extend({
   props: {
     data: {

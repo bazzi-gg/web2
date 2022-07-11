@@ -1,9 +1,9 @@
 import type { NuxtAxiosInstance } from '@nuxtjs/axios'
 import { Plugin } from '@nuxt/types'
-import { Autocomplete } from '~/types/autocomplete'
-import { PlayerDetail } from '~/types/player-detail.ts'
-import { AvailableChannels } from '~/types/available-channels'
-import { Contributor } from '~/types/contributor'
+import { Autocomplete } from '../types/autocomplete'
+import { PlayerDetail } from '../types/player-detail.ts'
+import { AvailableChannels } from '../types/available-channels'
+import { Contributor } from '../types/contributor'
 class StrapiWrapper {
   private readonly axios: NuxtAxiosInstance
   constructor(axiosInstance: NuxtAxiosInstance) {

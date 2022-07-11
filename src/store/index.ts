@@ -6,8 +6,8 @@ import {
 } from 'typed-vuex'
 // Import all your submodules
 import { Context } from '@nuxt/types'
-import * as recentSearch from '~/store/recentSearch'
-import * as auth from '~/store/auth'
+import * as recentSearch from './recentSearch'
+import * as auth from './auth'
 export const state = () => ({})
 
 export const getters = getterTree(state, {})

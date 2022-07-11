@@ -5,6 +5,7 @@ const defaultTitle = '카트라이더 전적 검색'
 const defaultDescription =
   '카트라이더 아이템 전, 스피드 전 전적을 확인해보세요.'
 export default {
+  srcDir: 'src/',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     htmlAttrs: {
