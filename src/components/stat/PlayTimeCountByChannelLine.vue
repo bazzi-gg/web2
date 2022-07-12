@@ -28,6 +28,13 @@ export default Vue.extend({
       chart: {
         type: 'line',
       },
+      xaxis: {
+        labels: {
+          formatter(value: number) {
+            return value - 1
+          },
+        },
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -55,7 +62,7 @@ export default Vue.extend({
       tooltip: {
         x: {
           formatter(value: number) {
-            return `${value}시`
+            return `${value - 1}시`
           },
         },
         y: {
