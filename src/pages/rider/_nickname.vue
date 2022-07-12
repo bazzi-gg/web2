@@ -20,7 +20,7 @@
             <p class="player-license">{{ data.license }}</p>
             <a
               class="garage-link-box"
-              :href="`https://kart.nexon.com/Garage/Manage?strRiderID=${data.nickname}`"
+              :href="`https://kart.nexon.com/Garage/Main?strRiderID=${data.nickname}`"
               target="_blank"
             >
               <span class="is-text-underline">차고</span>
