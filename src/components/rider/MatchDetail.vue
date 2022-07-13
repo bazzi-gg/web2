@@ -86,7 +86,7 @@
   </div>
 </template>
 <script>
-import { CharacterNotFound, KartbodyNotFound } from '~/helpers/callback'
+import { CharacterNotFound, KartbodyNotFound } from '../../helpers/callback'
 export default {
   props: {
     id: {
